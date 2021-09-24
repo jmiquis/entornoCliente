@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- entrada -->
+  <form action="">
+    <p><input type="text" name="caja" id="marca">Marca</p>
+    <p><input type="text" name="caja" id="modelo">Modelo</p>
+    <p><input type="text" name="caja" id="año">Año</p>
+
+    <hr>
+
+  <p><input type="text" name="caja" id="nombre" >Nombre</p>
+  <p><input type="text" name="caja" id="apellidos" >Apellidos</p>
+  <p><input type="text" name="caja" id="telefono" >Telefono</p>
+
+  <!-- salida -->
+  <p><textarea name="caja" id="cSalida" cols="30" rows="10"></textarea></p>
+  <!-- boton -->
+  <p><input type="button" id="boton" value="busqueda" onclick="pintaObjeto(creaObjeto())" ></p>
+  </form>
+  <script lang="javascript">
+
+    function creaObjeto() {
+      let arrayInput=document.getElementsByName("caja");
+      var Objeto={
+        marca:arrayInput[0].value,
+        modelo:arrayInput[1].value,
+        año:arrayInput[2].value,
+        nombre:arrayInput[3].value,
+        apellidos:arrayInput[4].value,
+        telefono:arrayInput[5].value
+      }
+         return Objeto;
+    }
+    function pintaObjeto(Objeto) {
+        let salida="los datos disponibles del objeto son : "
+        let arrayValores= Object.values(Objeto);
+        arrayValores.forEach(i => {
+          salida+=i+" ";
+        });
+        document.getElementById("cSalida").value=salida;
+    }
+  </script>
+</body>
+</html>
