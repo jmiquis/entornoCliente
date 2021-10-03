@@ -1,0 +1,31 @@
+
+ <!-- Escribe un bucle que solicite un número mayor que 100. Si el usuario introduce (en caja de texto) otro número, se le pedirá que introduzca un valor de nuevo.
+ El bucle debe pedir un número hasta que el usuario introduzca un número mayor que 100, o bien cancele la entrada/introduzca una línea vacía.
+ Aquí podemos asumir que el usuario solo introducirá números. No hay necesidad de implementar un manejo especial para entradas no numéricas en esta tarea. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <input type="button" value="empezar" id="boton" onclick="ejercicio1()">
+  <script lang="javaScript">
+    function ejercicio1() {
+
+    do{
+        var valor=prompt("introduzca un numero mayor que 100 o linea en blanco para terminar")
+        var repetir=true;
+        if(valor>100 || valor==="" || valor==undefined){
+            repetir=false;
+        }
+        }while(repetir);
+    }
+  </script>
+</body>
+</html>
