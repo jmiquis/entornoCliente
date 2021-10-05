@@ -24,12 +24,16 @@ fijos. -->
     function generaSalida() {
         let n=prompt("introduzca un numero");
         var mensajeSalida="";
-        for (let i = 2; i < n; i++) {
-          if (n%i==0) {
-            mensajeSalida+=i+",";
+      externo:
+       for (let i = 2; i <=n; i++) {
+        for (let j = 2; j < i; j++){
+          if(i%j==0){
+            continue externo;
           }
         }
-        return mensajeSalida;
+          mensajeSalida+=i+" ";
+       }
+       return mensajeSalida;
     }
     function pintaSalida(salida) {
       document.getElementById("salida").value=salida;
