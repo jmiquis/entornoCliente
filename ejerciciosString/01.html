@@ -1,0 +1,40 @@
+
+<!-- Ejercicio 1.- Media de serie de números.
+Crear una aplicación web que pida, a través de un prompt, constantemente números hasta que el usuario indique el número 0.
+Al final indicará la media de los números introducidos.
+Si en algún momento no es un número lo que escribe el usuario, se le pide de nuevo.
+Si cancela cualquier cuadro de lectura, el programa termina y se indica que el usuario ha cancelado y no se mostrará la media. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p><input type="button" name="empezar" id="" value="comenzar practica" onclick="ejercicio01()"></p>
+  resultado: <p><input type="text" name="" id="salida"></p>
+
+  <script>
+    function ejercicio01() {
+      let numero=0;
+      var contador=0;
+      var suma=0;
+
+      do{
+        numero=prompt("Ingrese numero para sumar a la media. O para calcular. Cancelar para salir");
+        contador++;
+        suma+=parseInt(numero);
+      }while( numero!=0 && numero!=undefined);
+
+      if (numero==0) {
+        let media=suma/contador;
+        document.getElementById("salida").value=media;
+      }
+
+    }
+  </script>
+
+</body>
+</html>

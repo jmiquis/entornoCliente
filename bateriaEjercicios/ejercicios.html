@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" name="boton" id="ejercicio1" value="ejercicio 1" onclick="ejercicio1()">
+  <input type="button" name="boton" id="ejercicio2" value="ejercicio 2" onclick="ejercicio2()">
+  <input type="button" name="boton" id="ejercicio3" value="ejercicio 3" onclick="ejercicio3()">
+  <input type="button" name="boton" id="ejercicio4" value="ejercicio 4" onclick="ejercicio4()">
+  <input type="button" name="boton" id="ejercicio5" value="ejercicio 5" onclick="ejercicio5()">
+  <input type="button" name="boton" id="ejercicio6" value="ejercicio 6">
+
+  <textarea name="salida" id="salida" cols="30" rows="10"></textarea>
+  <br>
+  <br>
+  nombre: <input type="text" name="inputEjer2" id="nombreEjer2"><br><br>
+  apellidos: <input type="text" name="inputEjer2" id="apellidosEjer2"><br><br>
+  salario:<input type="text" name="inputEjer2" id="salarioEjer2"><br><br>
+  edad:<input type="text" name="inputEjer2" id="edadEjer2"><br>
+  <br>
+
+  <script>
+    function ejercicio1() {
+      let valor=prompt("Introduzca un numero");
+      let mensaje=(isNaN(valor))?"el valor no es un numero":valor;
+      document.getElementById("salida").value=mensaje;
+    }
+    function ejercicio2() {
+     let arrayDatos=document.getElementsByName("inputEjer2");
+     let empleado={
+       nombre:arrayDatos[0].value,
+       apellidos:arrayDatos[1].value,
+       salario:parseInt(arrayDatos[2].value),
+       edad:arrayDatos[3].value,
+       getSalario:function(){
+         if (this.salario<2000 && this.salario>1000) {
+           if (edad>45) {
+             return this.salario+((this.salario/100)*3);
+           }
+           else return this.salario+((this.salario/100)*10);
+         }
+         else{
+           if (this.edad<30) {
+             return 1100;
+           }
+           else{
+             if (this.edad<=45) {
+              return this.salario+((this.salario/100)*3);
+             }
+             else{
+               return this.salario+((this.salario/100)*15);
+             }
+           }
+         }
+       }
+
+     };
+     document.getElementById("salida").value="el trabajador "+empleado.nombre+" "+empleado.apellidos+" tiene "+empleado.edad+" años y un salario de "+empleado.getSalario()+"  euros";
+    }
+
+    function ejercicio3() {
+      let numero=prompt("introduzca numero para factorizar");
+      numero=parseInt(numero);
+      factorial=1;
+      do {
+        factorial=factorial*numero;
+        numero--;
+      } while (numero>1);
+      document.getElementById("salida").value="el factorial de "+numero+" es "+factorial;
+    }
+
+    function ejercicio4() {
+      alert("adivine el numero");
+      let numero=Math.round(Math.random() * (1000 - 1) + 1);
+      let contador=1;
+      var acierto=false;
+      do{
+        let mensaje="";
+         numeroUsuario=prompt("teclee un numero. Tiene "+(6-contador)+" intentos");
+         if (numeroUsuario==undefined) {
+           break;
+         }
+
+        if (numeroUsuario==numero) {
+          mensaje="enhoranuena, has acertado en el intento "+contador;
+          acierto=true;
+        }
+        else{
+         mensaje=(numero<numeroUsuario)?" tiene que ser mas bajo":"tiene que ser mas alto";
+         contador++;
+        }
+        alert(mensaje);
+      }while (contador<6 || acierto);
+    }
+    function ejercicio5() {
+      var altura=prompt("introduzca la altura ");
+      var mensaje="";
+
+      for (let i = 0; i < altura; i++) {
+
+        for (let j = 0; j < i; j++) {
+          mensaje+="*";
+
+        }
+        mensaje+="\n";
+      }
+      document.getElementById("salida").value=mensaje;
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- Desarrollar una página web que pida al cliente una frase a través de una caja de texto. Y, cada vez que el cliente haga clic sobre el botón “Ver”, deberá mostrar un carácter aleatorio en otra caja de texto correspondiente a la frase introducida.
+Por otro lado, habrá un botón que permita obtener, de manera aleatoria, el carácter de referencia de parada. Es decir, este carácter se utilizará para poner fin a la generación aleatoria a través de “Ver”. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <p>introduzca texto: <input type="text" id="entrada"></p>
+ <p><input type="button" value="elegir caracter aleatorio" id="boton" onclick="ejercicio02()"></p>
+ <p><input type="text" name="" id="salida"></p>
+
+ <script>
+   function ejercicio02() {
+     var texto=new String(document.getElementById("entrada").value);
+     var numero= Math.round(Math.random() * ((texto.length-1)));
+     document.getElementById("salida").value=texto.charAt(numero);
+   }
+ </script>
+
+</body>
+</html>
