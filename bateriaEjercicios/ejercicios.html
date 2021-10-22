@@ -12,7 +12,7 @@
   <input type="button" name="boton" id="ejercicio3" value="ejercicio 3" onclick="ejercicio3()">
   <input type="button" name="boton" id="ejercicio4" value="ejercicio 4" onclick="ejercicio4()">
   <input type="button" name="boton" id="ejercicio5" value="ejercicio 5" onclick="ejercicio5()">
-  <input type="button" name="boton" id="ejercicio6" value="ejercicio 6">
+  <input type="button" name="boton" id="ejercicio6" value="ejercicio 6" onclick="ejercicio6()">
 
   <textarea name="salida" id="salida" cols="30" rows="10"></textarea>
   <br>
@@ -75,18 +75,19 @@
 
     function ejercicio4() {
       alert("adivine el numero");
-      let numero=Math.round(Math.random() * (1000 - 1) + 1);
+      let numero=Math.floor(Math.random() * (1000 - 1) + 1);
       let contador=1;
       var acierto=false;
       do{
         let mensaje="";
          numeroUsuario=prompt("teclee un numero. Tiene "+(6-contador)+" intentos");
+
          if (numeroUsuario==undefined) {
            break;
          }
 
         if (numeroUsuario==numero) {
-          mensaje="enhoranuena, has acertado en el intento "+contador;
+          mensaje="enhorabuena, has acertado en el intento "+contador;
           acierto=true;
         }
         else{
@@ -109,6 +110,20 @@
         mensaje+="\n";
       }
       document.getElementById("salida").value=mensaje;
+      }
+
+      function ejercicio6() {
+
+
+        let arrayHexa=['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+        let colorHexa="#";
+
+        for (let i = 0; i < 6; i++) {
+          let posicionAleatoria=Math.round(Math.random()*6);
+
+          colorHexa+=arrayHexa[posicionAleatoria];
+        }
+        document.bgColor=colorHexa;
       }
   </script>
 </body>

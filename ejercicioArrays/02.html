@@ -1,0 +1,57 @@
+<!-- 2.- Como alternativa al cifrado César, se plantea el cifrado polialfabético.
+Para implementar este tipo de cifrado se pedirá al cliente que introduzca un texto. Este texto
+servirá para cifrar nuestro mensaje.
+Como norma respecto al texto se tiene que debe contener números y la clave se cifrará de
+forma cíclica.
+Ejemplo:
+Mensaje: Este es el mensaje.
+Clave: 12345
+Mensaje cifrado: Fuwi%fu#iq!ohrxblh
+El mensaje cifrado se forma de esta manera:
+E+1=F; s+2=u; t+3=w; e+4=i; “ “ + 5=%; e+1=f; …… -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>texto a cifrar<input type="text" name="" id=""></p>
+  <p>clave numerica de cifrado <input type="text"></p>
+  <p>salida: <input type="text"></p>
+  <p><input type="button" value="generar cifrado" onclick="ejercicio2()"></p>
+
+  <script>
+    function ejercicio2() {
+      let texto=document.getElementsByTagName("input")[0].value;
+      let clave=document.getElementsByTagName("input")[1].value;
+      let salida=document.getElementsByTagName("input")[2];
+      let mensajeFinal="";
+
+      for (let i = 0,j=0; i < texto.length; i++,j++) {
+
+        letra=texto.charAt(i);
+        cifra=parseInt(clave.charAt(j));
+        mensajeFinal+=cifradoLetra(letra,cifra);
+
+
+        if(j+1==clave.length){
+          j=0;
+        }
+        
+      }
+      salida.value=mensajeFinal;
+    }
+
+    function cifradoLetra(letra,cifra) {
+      letra=letra.charCodeAt(0);
+      letra+=cifra;
+      return letra=String.fromCharCode(letra);
+    }
+
+
+  </script>
+</body>
+</html>

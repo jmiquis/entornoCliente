@@ -1,0 +1,34 @@
+<!-- 1.- Dado el siguiente array:
+4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1
+Desarrollar el código script que permita obtener un array sin elementos repetidos. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+
+  <p>array original <input type="text" id="original"></p>
+  <p>array sin repetidos<input type="text" id="salida" value=" "></p>
+
+  <script>
+var array1=['4','0','3','4','7','3','5','8','1','8','8','0','2','3','1','2','5','7','3','2','5','1'];
+document.ge
+document.getElementById("original").value=array1.join(',');
+var arrayResultado=[];
+    function eliminaRepetidos(array) {
+      for (let i = 0; i < array.length; i++) {
+        if (array.indexOf(array[i],i+1)==-1) {
+            arrayResultado.push(array[i]);
+        }
+      }
+      document.getElementById("salida").value=arrayResultado.join(",");
+    }
+    eliminaRepetidos(array1);
+  </script>
+</body>
+</html>
