@@ -17,12 +17,13 @@ Desarrollar el código script que permita obtener un array sin elementos repetid
 
   <script>
 var array1=['4','0','3','4','7','3','5','8','1','8','8','0','2','3','1','2','5','7','3','2','5','1'];
-document.ge
+
 document.getElementById("original").value=array1.join(',');
 var arrayResultado=[];
+
     function eliminaRepetidos(array) {
       for (let i = 0; i < array.length; i++) {
-        if (array.indexOf(array[i],i+1)==-1) {
+        if (arrayResultado.indexOf(array[i])==-1) {
             arrayResultado.push(array[i]);
         }
       }

@@ -1,0 +1,46 @@
+<!-- Mostrar asteriscos para un array.
+Genera un array con 20 números aleatorios del 1 al 50.
+Recorre el array mostrando tantos asteriscos como se indique en el número de cada
+elemento. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="button" value="empezar" onclick="ejercicio04()">
+  <textarea name="" id="salida" cols="30" rows="10"></textarea>
+  <script>
+
+
+    function generaArray() {
+      var arrayAleatorios=new Array(20);
+      for (let i = 0; i < arrayAleatorios.length; i++) {
+      arrayAleatorios[i]=Math.floor(Math.random()*(50-1)+1);
+    }
+    return arrayAleatorios;
+    }
+
+
+    
+    function ejercicio04() {
+
+        arrayAleatorios=generaArray();
+        var mensajeSalida="";
+        for (const i of arrayAleatorios) {
+          for (let j = 0; j < i; j++) {
+            mensajeSalida+="*";
+          }
+          mensajeSalida+="\n";
+        }
+        document.getElementById("salida").value=mensajeSalida;
+    }
+
+  </script>
+</body>
+</html>

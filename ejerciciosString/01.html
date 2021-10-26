@@ -24,6 +24,10 @@ Si cancela cualquier cuadro de lectura, el programa termina y se indica que el u
 
       do{
         numero=prompt("Ingrese numero para sumar a la media. O para calcular. Cancelar para salir");
+        if(isNaN(numero)){
+          alert("la cadena no puede estar vacia");
+          continue;
+        }
         contador++;
         suma+=parseInt(numero);
       }while( numero!=0 && numero!=undefined);
