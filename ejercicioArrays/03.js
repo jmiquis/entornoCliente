@@ -6,6 +6,7 @@ function generaCombinaciones() {
         for (let j = 0; j < arrayCombinaciones[i].length; j++) {
             let numero=Math.floor(Math.random()*(49-1)+1);
             if (arrayCombinaciones[i].includes(numero)) {
+
                 j--;
             }
             else{

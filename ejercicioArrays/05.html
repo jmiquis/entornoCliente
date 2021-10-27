@@ -3,3 +3,104 @@ Math.random es realmente aleatoria.
 Para ello, calcularemos 10.000 veces números aleatorios del 1 al 10.
 Mostraremos en una página web la frecuencia con la que ha salido cada número.
 Ejemplo: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>frecuencias</h2>
+  <table>
+    <tr>
+      <td>1</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td name="salida"></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td name="salida"></td>
+    </tr>
+  </table>
+
+  <input type="button" value="generar frecuencia" onclick="pintarResultado()">
+  <script>
+
+    function generaArrayNumeros() {
+      array=new Array(10);
+      for (let i = 0; i <array.length; i++) {
+        array[i]=i+1;
+      }
+      return array;
+    }
+
+    function generaArrayAleatorios() {
+      var arrayAleatorios=new Array(10000);
+      for (let i =0;i<arrayAleatorios.length;i++) {
+          arrayAleatorios[i]=Math.floor(Math.random() * (11 - 1)) + 1;
+      }
+      return arrayAleatorios;
+    }
+
+    function generaArrayFrecuencia() {
+      var array=generaArrayNumeros();
+      var arrayAleatorios=generaArrayAleatorios();
+      var arrayResultado=new Array(10);
+
+      for (let i = 0; i < array.length; i++) {
+        var contador=0;
+        for (let j=0;j<arrayAleatorios.length;j++) {
+          if(arrayAleatorios[j]==array[i]){
+            contador++;
+          }
+        }
+        arrayResultado[i]=contador;
+      }
+      return arrayResultado;
+    }
+
+    function pintarResultado() {
+      let arrayResultado=generaArrayFrecuencia();
+      arrayCeldas=document.getElementsByName("salida");
+
+      for (let i = 0; i < arrayCeldas.length; i++) {
+          arrayCeldas[i].innerHTML=arrayResultado[i];
+      }
+    }
+
+  </script>
+</body>
+</html>
