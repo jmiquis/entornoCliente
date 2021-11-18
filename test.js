@@ -1,16 +1,3 @@
-function ejercicio1() {
-  var mensaje="";
-  for(let i=0;i<20;i++){
-    if(i%2==0){
-      mensaje+=i.toString()+",";
-    }
-    document.getElementById("resultado").value=mensaje;
-  }
-}
+var miHonda = {color: "rojo", ruedas: 4, motor: {cilindros: 4, tamanio: 2.2}};
 
-function ejercicio2(numero) {
-  for (let i = 1; i <= numero; i++) {
-    var mensaje="";
-    mensaje=(i/)?
-  }
-}
+console.log(miHonda.motor.tamanio);

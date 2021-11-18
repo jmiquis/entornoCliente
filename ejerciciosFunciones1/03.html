@@ -1,0 +1,53 @@
+<!-- 3. - Desarrollar una web que permita dibujar una tabla.
+Crea una función en javascript que permita dibujar una tabla.
+Como parámetros se indicarán el número de filas y de columnas con dos números. Por defecto la función generará una tabla de 10 filas y 4 columnas.
+La tabla se creará con un borde negro de 1pixel entre cada celda, pero un tercer parámetro permite indicar el color (por defecto el color será negro). El borde exteerior medirá 3 pixeles y siempre será del mismo color que el borde de las celdas.
+La tabla ocupará toda la anchura de la página.
+Usa la función para crear una tabla con borde negro de 10 filas y 4 columnas.
+Úsala de nuevo para generar una tabla de 20 filas y 10 columnas, con borde negro.
+Finalmente, consigue dibujar 10 tablas de 5 filas y 4 columnas que tengan borde verde. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    numero de filas: <input type="number" name="" id="">
+    numero de columnas: <input type="number" name="" id="">
+    color de borde:
+      <select name="color" id="">
+        <option value="red">rojo</option>
+        <option value="green">verde</option>
+        <option value="yellow">amarillo</option>
+        <option value="black" default>negro</option >
+        <option value="orange">naranja</option>
+      </select>
+      <p><input type="button" value="crear tabla" onclick="document.getElementById('salida').value=(tabla(
+        document.getElementsByTagName('input')[0].value,
+        document.getElementsByTagName('input')[1].value,
+        document.getElementsByName('color')[0].value))"></p>
+      <p><textarea name="" id="salida" cols="30" rows="10"></textarea></p>
+  </form>
+
+  <script lang="javascript">
+    function tabla(filas, columnas , color) {
+      var texto="";
+      texto+=`<table style='border-collapse:collapse; border:3px solid ${color};width:100%;'>`;
+      for (let i=0;i<filas;i++) {
+        texto+="<tr>\n"
+        for (let j = 0; j < columnas; j++) {
+          texto+=`<td style='border-collapse:collapse; border:1px solid ${color};'>&nbsp;</td>\n`
+        }
+        texto+="</tr> \n"
+      }
+
+      texto+="</table>"
+      return texto;
+    }
+  </script>
+</body>
+</html>

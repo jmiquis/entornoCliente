@@ -1,0 +1,27 @@
+<!-- crear un map de objetos libro con la clave=signatura y los demas datos como valor.
+La consulta se realiza por título -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script type="text/javascript" src="bibliotecaObjetos.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Título: <input type="text" name="" id=""> para buscar introducir nombre para buscar</p>
+  <p>Autor: <input type="text" name="" id="" > para añadir introducir y pulsar añadir</p>
+  <p>Editorial: <input type="text" name="" id=""> para añadir introducir y pulsar añadir</p>
+  <p>Año publicación: <input type="text" name="" id=""> para añadir introducir y pulsar añadir</p>
+  <p>Signatura: <input type="text" name="" id="" readonly> campo automático</p>
+  <p>
+    <input type="button" value="añadir" onclick="addLibro()">
+    <input type="button" value="Borrar" onclick="borrar()">
+    <input type="button" value="consultar" onclick="document.getElementById('salida').value=buscarElemento(datos[0].value)" >
+  </p>
+
+  salida de busqueda
+  <p><textarea name="" id="salida" cols="30" rows="10"></textarea></p>
+</body>
+</html>

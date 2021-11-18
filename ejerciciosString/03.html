@@ -12,9 +12,38 @@ Se mostrará un mensaje informando de la posición que ocupa en la cadena miCade
   <title>Document</title>
 </head>
 <body>
+
+  <p>indique la variedad de queso: <input type="text" name="" id="entrada"></p>
+  <p><input type="text" name="" id="salida"></p>
+  <p><input type="button" value="empezar ejercicio" onclick="indicaIndice()"></p>
   <script>
-    var miCadena="cabrales, torta del casar, idiazabal";
-    var miCadenaMayusculas="Cabrales, Torta del Casar, Idiazabal";
+
+
+
+    function indicaIndice() {
+
+      let entrada=document.getElementById('entrada').value;
+      var miCadena="cabrales, torta del casar, idiazabal";
+      var miCadenaMayusculas="Cabrales, Torta del Casar, Idiazabal";
+      var mensaje="";
+
+      if (miCadena.indexOf(entrada!=-1)) {
+          mensaje="El queso ocupa el lugar "+miCadena.indexOf(entrada!=-1)+" de la cadena en minusculas";
+      }
+      else{
+        if (miCadenaMayusculas.indexOf(entrada!=-1)) {
+          mensaje="El queso ocupa el lugar "+miCadenaMayusculas.indexOf(entrada!=-1)+" de la cadena en mayusculas";
+        }
+        else{
+          mensaje="La cadena introducida no corresponde a ningún índice dentro de las cadenas";
+        }
+      }
+      document.getElementById("salida").value=mensaje;
+    }
+
+
+
+
 
 
   </script>
