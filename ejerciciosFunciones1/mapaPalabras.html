@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+
+  </form>
+  <script>
+arrayPalabras=new Array()
+    do {
+      var palabra=prompt("introduzca una palabra. Cancele pulse intro para terminar")
+      arrayPalabras.push(palabra);
+    } while (palabra!=undefined && palabra!="");
+
+    arrayPalabras.pop();
+    arrayPalabras.sort((a, b) => a.localeCompare(b,"es"));
+
+    function mapaderepeticiones(array) {
+        mapa=new Map();
+
+       for (i  in array) {
+         aux=mapa.get(array[i]);
+          if(aux==undefined){
+            mapa.set(array[i],1)
+          }
+          else{
+           mapa.set(array[i],aux+1);
+          }
+         }
+         return mapa;
+        }
+        var mapa=mapaderepeticiones(arrayPalabras);
+        for (var[key,value] of mapa){
+          document.write(key+"="+value+"<br>");
+        }
+
+
+
+  </script>
+</body>
+</html>

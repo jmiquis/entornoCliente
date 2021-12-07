@@ -1,0 +1,36 @@
+<!-- 3.- Crea una interfaz gráfica que permita introducir datos relativos a ordenadores y que pueda visualizarlos, después, ante una consulta.
+Propiedades:
+Marca(texto), Modelo(texto), Memoria RAM(número que indica GB de capacidad), SD (número que indica capacidad), Microprocesador(texto de Código modelo), Gráfica(texto de código de modelo).
+Por cada propiedad una caja de texto.
+Además, en la interfaz se añadirán dos imágenes, una para la gráfica y otra para el micropropcesador.
+Método:
+Se deberá crear método que permita mostrar en modo string las propiedades del objeto ordenador.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="02.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <p>marca: <input type="text"></p>
+    <p>modelo <input type="text"></p>
+    <p>Memoria <input type="number"></p>
+    <p>sd <input type="number" name="" id=""></p>
+    <p>microprocesador<input type="text" name="" id=""></p>
+    <p>grafica <input type="text" name="" id=""></p>
+    <p>imagen grafica <input type="text" name="" id=""></p>
+    <p>imagen procesador <input type="text" name="" id=""></p>
+    <p><input type="reset" value="añadir" onclick="addOrdenador()"></p>
+    <p><input type="button" value="buscar" onclick="document.getElementById('salida').value=buscar(datos[0].value)"></p>
+    <textarea name="" id="salida" cols="30" rows="10"></textarea>
+  </form>
+    <img src="" alt="">
+    <img src="" alt="">
+
+</body>
+</html>

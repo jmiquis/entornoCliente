@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     Array.prototype.mediaAritmetica=function() {
+      suma=0;
+      this.forEach(elemento=>suma+=elemento);
+      return suma/this.length;
+    };
+    var numeros=new Array();
+    do {
+       var numero=prompt("Introduzca numeros de array. Cancele o pulse intro para parar");
+       numeros.push(numero);
+    } while (numero!=undefined || numero!="");
+
+    document.write("la media es "+numeros.mediaAritmetica());
+  </script>
+</body>
+</html>

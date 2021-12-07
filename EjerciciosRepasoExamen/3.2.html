@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    filas <input type="number">
+    columnas <input type="number" name="" id="">
+    salida <textarea name="" id="salida" cols="30" rows="10"></textarea>
+    <input type="button" value="empezar" onclick="piramide()">
+   </form>
+   <script>
+
+
+     function piramide() {
+     var filas=document.getElementsByTagName("input")[0].value;
+     var columnas=document.getElementsByTagName("input")[1].value;
+     var mensaje=" ";
+     var blancos=0;
+      for (let i = 0; i <= filas; i++) {
+        for (let j = 0; j < columnas; j++) {
+          if (j>=columnas-blancos) {
+            mensaje+="*";
+          }
+          else{
+            mensaje+=" ";
+          }
+        }
+        blancos++;
+        mensaje+="\n";
+      }
+      document.getElementById("salida").value=mensaje;
+     }
+
+  </script>
+</body>
+</html>
