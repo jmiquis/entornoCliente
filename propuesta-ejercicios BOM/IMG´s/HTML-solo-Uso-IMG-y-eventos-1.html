@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso IMG y eventos 1</title>
+</head>
+<body>
+    <center>
+        <table>
+    <tr>
+        <td>
+            <IMG
+                SRC="on.jpg"
+                NAME="img1"
+                ALT="Departamentos"
+                style="height: 160;width: 130;"
+                onMouseover="imagenOff('img1')"></td>
+            <td>
+                <IMG
+                    SRC="off.jpg"
+                    NAME="img2"
+                    ALT="Equipo Directivo"
+                    style="height: 160;width: 130;"
+                    onMouseover="imagenOff('img2')"></td>
+            </tr>
+            <tr>
+                <td>Mueve
+                    <A HREF="departamento.html" onmouseout="imagenOn('img1')">sobre-esto</A>
+                </td>
+                <td>Ahora
+                    <A HREF="Equipo.html" onmouseout="imagenOn('img2')">sobre-aqui</A>
+                </td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        var imagenes1=new Array();
+        imagenes1[0]="http://127.0.0.1:5500/propuesta-ejercicios%20BOM/IMG%C2%B4s/on.jpg";
+        imagenes1[1]="http://127.0.0.1:5500/propuesta-ejercicios%20BOM/IMG%C2%B4s/off.jpg";
+
+        var imagenes2=new Array();
+        imagenes2[0]="http://127.0.0.1:5500/propuesta-ejercicios%20BOM/IMG%C2%B4s/f-arriba.jpg";
+        imagenes2[1]="http://127.0.0.1:5500/propuesta-ejercicios%20BOM/IMG%C2%B4s/f-abajo.jpg";
+        imagenes2[2]="http://127.0.0.1:5500/propuesta-ejercicios%20BOM/IMG%C2%B4s/f-dcha.jpg";
+        imagenes2[3]="http://127.0.0.1:5500/propuesta-ejercicios%20BOM/IMG%C2%B4s/f-izda.jpg";
+
+        var contador=0;
+
+        function imagenOff(imagen){
+
+            let imagenActual1  = document.getElementsByName(imagen)[0];
+            imagenActual1.src = (imagenActual1.src==imagenes1[0])?imagenes1[1]:imagenes1[0];
+
+        }
+
+        function imagenOn(imagen){
+                if(contador==4)contador=0;
+                let imagenActual2 = document.getElementsByName(imagen)[0];
+                imagenActual2.src = imagenes2[contador];
+                contador++;
+                }
+
+    </script>
+
+</body>
+</html>

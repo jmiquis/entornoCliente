@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="" id="horas">
+  <input type="text" name="" id="minutos">
+  <input type="text" name="" id="segundos">
+</body>
+
+  <script>
+    var reloj = window.setInterval(muestraHora,1000);
+
+    var horas    = document.getElementById("horas");
+    var minutos  = document.getElementById("minutos");
+    var segundos = document.getElementById("segundos");
+
+
+
+    function muestraHora(){
+      var hoy         = new Date();
+      horas.value     = hoy.getHours();
+      minutos.value   = hoy.getMinutes();
+      segundos.value  = hoy.getSeconds();
+    }
+
+  </script>
+</html>

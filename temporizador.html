@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=scr, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var intervalo = window.setInterval(cuentaAtras,1000);
+    inicio = 12;
+
+
+    function cuentaAtras() {
+
+      //clausula de escape
+      if(inicio<0){
+        clearInterval(intervalo);
+        document.write("Feliz año nuevo!")
+        return;
+      }
+
+      //pinto el primer numero
+      document.write(inicio+"<br>");
+      inicio--; //como es variable global lo voy decrementando
+
+      //efecto de borrado con retraso para permitir ver el numero
+      setTimeout(function(){document.getElementsByTagName("body")[0].innerHTML=""},500);
+
+
+
+
+    }
+
+  </script>
+</body>
+</html>

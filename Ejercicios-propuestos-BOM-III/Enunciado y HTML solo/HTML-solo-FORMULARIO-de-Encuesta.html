@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE>FORMULARIO DE REGISTRO</TITLE>
+
+	</HEAD>
+	<BODY>
+
+		<form name="formulario" method="post" enctype="text/plain">
+			Nombre: <input type="text" name="nombre" id="nombre" size="25" maxlength="50"><br><br>
+			Apellidos: <input type="text" name="apellidos" id="apellidos" size="35" maxlength="100">
+			<br><br>
+			Correo electrónico: <input type="text" value="@" name="correo" id="correo" size="40" maxlength="100">
+			<br><br>
+			Población: <input type="text" name="poblacion" id="poblacion" size="15" maxlength="50">
+			<br><br>
+			Provincia: <input type="text" name="provincia" id="provincia" size="15" maxlength="50">
+			<table align="center" width="100%" border="0" cellspacing="0" cellpadding="10">
+				<tr>
+					<td>Edad:<br>
+						<input type="radio" name="edad" value="020"> 0-20<br>
+						<input type="radio" name="edad" value="2040" checked> 20-40<br>
+						<input type="radio" name="edad" value="4060"> 40-60<br>
+						<input type="radio" name="edad" value="60100"> 60-100
+					</td>
+					<td>&iquest;C&oacute;mo nos conociste?<br>
+						<input type="checkbox" name="conocer" value="Por amigos">A trav&eacute;s de un amigo.<br>
+						<input type="checkbox" name="conocer" value="Utilizando buscador">A trav&eacute;s de un buscador.<br>
+						<input type="checkbox" name="conocer" value="Navegando">Navegando por la red.<br>
+						<input type="checkbox" name="conocer" value="Redes Sociales">Redes Sociales
+					</td>
+				</tr><br><br>
+				<tr>
+					<td>
+						<input type="button" value="Registrar" onclick="registrar();">
+					</td>
+					<td>
+						<input type="Reset" value="Limpiar">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="Buscar" onclick="buscar();">
+					</td>
+				</tr>
+			</table>
+			<textarea id="objeto" rows="10" cols="50">
+
+			</textarea>
+		</form>
+		<script>
+
+				var datos=new Array();
+				datos[0] = document.forms[0].elements[0],
+				datos[1] = document.forms[0].elements[1],
+				datos[2] = document.forms[0].elements[2],
+				datos[3] = document.forms[0].elements[3],
+				datos[4] = document.forms[0].elements[4],
+				datos[5] = document.getElementsByName("edad"),
+				datos[6] = document.getElementsByName("conocer")
+
+
+				var arrayPersonas = new Map();
+				function Persona(
+					nombre,
+					apellidos,
+					correo,
+					poblacion,
+					provincia,
+					edad,
+					metodoConocido
+				){
+					this.nombre         = nombre;
+					this.apellidos      = apellidos;
+					this.correo         = correo;
+					this.poblacion      = poblacion;
+					this.provincia      = provincia;
+					this.edad           = edad;
+					this.metodoConocido = metodoConocido;
+				}
+
+			function registrar(){
+				var cliente = new Persona(
+					datos[0].value,
+					datos[1].value,
+					datos[2].value,
+				  datos[3].value,
+					datos[4].value,
+					checkOptions(datos[5]),
+					checkOptions(datos[6])
+				);
+				arrayPersonas.set(cliente.nombre,cliente);
+			}
+			function checkOptions(options){
+				let optionsString = "";
+				for (let i=0;i<options.length;i++){
+					if(options[i].checked || options[i].selected){
+						optionsString+=options[i].value+",";
+					}
+				}
+				return optionsString;
+			}
+
+			function buscar(){
+				var informacion = "";
+				var personaBuscada=arrayPersonas.get(document.forms[0].elements[0].value);
+				if(personaBuscada==undefined) {
+					document.getElementsByTagName("textarea")[0].innerHTML = "la persona buscada no está en nuestra base de datos";
+					return;
+				}
+				document.getElementsByTagName("textarea")[0].innerHTML = informacion+="nombre : "+personaBuscada.nombre+" \n apellidos: "+personaBuscada.apellidos+" \n correo:"+personaBuscada.correo+" \n poblacion: "+personaBuscada.poblacion+" \n provincia: "+personaBuscada.provincia+" \n edad: "+personaBuscada.edad+" \n metodo de contacto : "+personaBuscada.metodoConocido;
+			}
+
+			function limpiar() {
+				for(let i=0;i<datos.length;i++){
+					datos[i].value="";
+				}
+				document.getElementsByTagName("textarea")[0].innerHTML = "";
+			}
+
+		</script>
+
+	</body>
+	</html>

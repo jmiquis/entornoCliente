@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="test.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- enlace javascript -->
+  <script type="text/javascript" src="test.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <p>Nombre           <input type="text" id = "nombre"   > </p>
+    <p>apellidos        <input type="text" id = "apellidos"> </p>
+    <p>fecha nacimiento <input type="date" id = "nacimiento"></p>
+  </form>
+
+  <script>
+    var nombre;
+    var apellidos;
+    var nacimiento;
+
+    document.onreadystatechange=function(){
+    if (document.readyState==="complete") {
+
+      nombre     = document.getElementById("nombre");
+      apellidos  = document.getElementById("apellidos");
+      nacimiento = document.getElementById("nacimiento");
+      alert(nombre);
+    }
+    }
+  </script>
+</body>
+</html>

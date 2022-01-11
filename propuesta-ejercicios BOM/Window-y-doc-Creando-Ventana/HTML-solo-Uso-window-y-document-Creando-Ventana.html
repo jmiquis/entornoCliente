@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creando una ventana nueva</title>
+</head>
+<body>
+    <p align="center"><b>CREA UN NUEVO DOCUMENTO HTML</b></p>
+    <center>
+    <table border="0" cellpadding="0" cellspacing="0" height="108">
+        <tr>
+            <td height="87" align = "center">
+            <form name="FORMULARIO" >
+                <input type="button" value="Documento con colores" name="B1" onclick = "mostrar(1); pintapagina(1);">
+                <input type="button" value="Valores por defecto"   name="B2" onclick = "mostrar(0); pintapagina(0);"><br>
+                <textarea rows="4" name="area" cols="20" readonly wrap>Haz clic en uno de los botones</textarea>
+            </form>
+            </td>
+        </tr>
+    </table>
+    </center>
+    <script>
+        //variables
+        var arrayColores = ["blue","yellow","green","beige","orange","purple"];
+        var salida=document.getElementsByTagName("textarea")[0];
+        var mensaje1="<h1>Esta es mi pagina web</h1>";
+        var mensaje2="<a href='#'>visita otro ejemplo</a>";
+        var ventana;
+
+
+        function mostrar(parametro){
+
+            ventana =  window.open("" , "", "width=300,height=400");
+            ventana.document.write(mensaje1);
+            ventana.document.write(mensaje2);
+            if (parametro==1){
+                ventana.document.bgColor = arrayColores [Math.floor(Math.random() * (arrayColores.length))];
+            }
+        }
+
+        function pintapagina(params) {
+            let mensajeSalida = "";
+            mensajeSalida     += "color de fondo " + ventana.document.bgColor+"\n";
+            mensajeSalida     += "color de texto " + ventana.document.getElementsByTagName("h1")[0].fontcolor+"\n";
+            mensajeSalida     += "link visitados " + ventana.alinkcolor;
+            salida.innerHTML  = mensajeSalida;
+        }
+
+    </script>
+
+</body>
+</html>
