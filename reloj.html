@@ -23,9 +23,9 @@
 
     function muestraHora(){
       var hoy         = new Date();
-      horas.value     = hoy.getHours();
-      minutos.value   = hoy.getMinutes();
-      segundos.value  = hoy.getSeconds();
+      horas.value     = (hoy.getHours()/10>=1)  ? hoy.getHours  () : "0"+hoy.getHours();
+      minutos.value   = (hoy.getMinutes()/10>=1)? hoy.getMinutes() : "0"+hoy.getMinutes()
+      segundos.value  = (hoy.getSeconds()/10>=1)? hoy.getSeconds() : "0"+hoy.getSeconds()
     }
 
   </script>

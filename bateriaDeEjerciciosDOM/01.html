@@ -1,0 +1,53 @@
+<!-- 1.	Averiguar si el elemento párrafo tiene atributos.
+2.	Mostrar en la caja de texto el nombre de la propiedad y su valor.
+ -->
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ejemplo uso Attributes</title>
+  <script type="text/javascript">
+  </script>
+ </head>
+<body>
+ <p id="paragraph" >Párrafo sencillo</p>
+ <form action="">
+  <p>
+    <input type="button" value="Muestra el nombre y valor del primer attribute"
+      onclick="init(),listAttributes();">
+    <input  id="result" type="text" size="50" maxlentgth="100" value="">
+  </p>
+ </form>
+<script>
+    var parrafo;
+    var coleccionAtributos;
+    var salida;
+
+    function init(){
+      parrafo            = document.getElementById("paragraph");
+      coleccionAtributos = parrafo.attributes;
+      salida             = document.getElementById("result");
+    }
+
+    function listAttributes() {
+      let retorno ="";
+      if(coleccionAtributos.length==0){
+        retorno += "el elemento parrafo no tiene atributos";
+      }else{
+        for(let i=0;i<coleccionAtributos.length;i++){
+          retorno+=coleccionAtributos[i].name+" : "+coleccionAtributos[i].value;
+        }
+      }
+      salida.value=retorno;
+      return;
+    }
+
+
+
+</script>
+
+</body>
+	</html>
+
+
+

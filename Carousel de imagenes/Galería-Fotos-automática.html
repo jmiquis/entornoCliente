@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería fotos</title>
+</head>
+<body>
+    <h1>GALERÍA DE FOTOS</h1><br><br>
+    <img src="Frase-Cervantes.JPG" alt="" width="888" height="500"><br><br>
+
+   <input type="radio" name="sentido" id="" onclick="limpiarIntervalo(),iniInterval(carruselImagenesIzquierdas)"> A izquierdas <br><br>
+   <input type="radio" name="sentido" id="" onclick="limpiarIntervalo(),iniInterval(carruselImagenesDerechas)">  A derechas   <br><br>
+    <script>
+
+    var arrayRadios = document.getElementsByName('sentido');
+    var imagen      = document.images[0];
+    var temporizador;
+    var numero=0;
+
+    function iniInterval(funcionVariable) {
+         temporizador = setInterval(funcionVariable,2000);
+    }
+
+    function carruselImagenesIzquierdas(){
+        numero++;
+        if(numero==4) numero=1;
+        imagen.src = "img-"+numero+".jpg";
+
+    }
+    function carruselImagenesDerechas() {
+        numero--;
+        if(numero==0) numero=3;
+        imagen.src = "img-"+numero+".jpg";
+
+    }
+
+    function limpiarIntervalo(){
+        if(temporizador){
+            clearInterval(temporizador);
+        }
+    }
+
+    </script>
+</body>
+</html>

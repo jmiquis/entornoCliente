@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="radios">
+
+  </div>
+
+  <script>
+
+    elementoPadre = document.getElementById("radios");
+
+    crearInputRadioButtom(elementoPadre,"radioButton ","grupoBotones",5);
+
+
+
+    function crearInputRadioButtom(padre,texto,nombre,veces){
+
+      for (let index = 0; index < veces; index++) {
+        var nodoTexto       = document.createTextNode(texto+(index+1));
+        padre.appendChild(nodoTexto);
+        elementoRadioButton = createInput(name);
+        padre.appendChild(elementoRadioButton);
+
+      }
+
+    }
+
+    //auxiliar
+    function createInput(nombreGrupo){
+      var input = document.createElement("input");
+      input.setAttribute("name",nombreGrupo);
+      input.setAttribute("type","radio");
+      return input;
+    }
+
+
+  </script>
+</body>
+</html>

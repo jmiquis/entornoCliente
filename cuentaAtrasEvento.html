@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  tiempo para mañana
+  <p></p>
+</body>
+  <script>
+
+    var contadorEvento = setInterval(muestraDiferencia,1000);
+    var salida = document.getElementsByTagName("p")[0];
+
+    function muestraDiferencia() {
+
+      salida.innerHTML     = "";
+      fechaEvento          = new Date("2022/1/13");
+      fechaActual          = new Date();
+      diferenciaEnSegundos = new Date(fechaEvento - fechaActual).getTime()/1000;
+      salida.innerHTML     = (pasarAHoras(diferenciaEnSegundos));
+      
+    }
+
+    function pasarAHoras(segundos){
+
+      horas    =  Math.floor(segundos/3600);
+      segundos -= horas*3600;
+      minutos  =  Math.floor(segundos/60);
+      segundos =  Math.trunc(segundos-(minutos*60));
+
+      return `${horas} : ${minutos} : ${segundos}`;
+    }
+
+  </script>
+</html>

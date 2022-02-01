@@ -1,0 +1,44 @@
+<!-- 3.- Sobre un documento HTML en blanco, crear de forma dinámica una tabla de una fila y tres columnas. El texto asociado de cada celda será Celda 0, Celda 1 y Celda 2 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var cuerpo   = document.body;
+    var tabla    = crearElemento("table",1,cuerpo);
+    var fila     = crearElemento("tr",4,tabla,"text");
+    var casillas = crearElemento("td",3,fila,"texto");
+    bordesTabla();
+
+    function bordesTabla(){
+      tabla.setAttribute("border","1px solid black");
+      tabla.setAttribute("border-collapse","collapse");
+    }
+
+    function crearElemento(etiqueta,veces,padre,textoAsociado="") {
+
+      for(let i=0;i<veces;i++){
+        var elemento = document.createElement(`${etiqueta}`);
+        padre.appendChild(elemento);
+
+        if(textoAsociado!==""){
+          var nodoTexto = document.createTextNode(textoAsociado);
+          elemento.appendChild(nodoTexto);
+        }
+
+      }
+
+
+      return elemento;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  nombre <input type="text" name="" id="nombre">
+  contraseña <input type="password" name="" id="password">
+
+
+  <script>
+    var nombre   = document.getElementById("nombre");
+    var password = document.getElementById("password");
+
+
+    function cambioFoco(e){
+      if(e.keyCode==13){
+        if(document.activeElement === nombre){
+          password.focus();
+        }
+        else{
+          transmision("iniciando transmision");
+        }
+      }
+    }
+
+    function transmision(texto) {
+      nodoTexto = document.createTextNode(texto);
+      document.body.appendChild(nodoTexto);
+    }
+
+    function agregarEvento(e){
+      if (document.readyState == 'complete') {
+					nombre.addEventListener('keydown',cambioFoco);
+          password.addEventListener('keydown',cambioFoco);
+
+				}
+    }
+
+    document.addEventListener('readystatechange', agregarEvento, false);
+  </script>
+</body>
+</html>
